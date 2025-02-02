@@ -1,17 +1,20 @@
-# Use official Python image
-FROM python:3.9
+# Use Python 3.10 or higher base image to avoid compatibility issues
+FROM python:3.10
 
-# Set working directory
+# Set working directory in the container
 WORKDIR /app
 
-# Copy project files
+# Copy all the project files into the working directory
 COPY . /app
 
-# Install dependencies
+# Upgrade pip to the latest version to ensure smooth dependency installation
+RUN pip install --upgrade pip
+
+# Install project dependencies from the requirements.txt file
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port Django runs on (default is 8000)
+# Expose port 8000 for Django's development server
 EXPOSE 8000
 
-# Run the Django application with manage.py
+# Run Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
