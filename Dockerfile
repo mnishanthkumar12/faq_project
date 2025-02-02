@@ -10,8 +10,8 @@ COPY . /app
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port Flask runs on
-EXPOSE 5000
+# Expose the port Django runs on (default is 8000)
+EXPOSE 8000
 
-# Run the Flask application
-CMD ["python", "one.py"]
+# Run the Django application with manage.py
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
