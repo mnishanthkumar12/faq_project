@@ -7,10 +7,10 @@ WORKDIR /app
 # Copy requirements file
 COPY requirements.txt .
 
-# Install system dependencies
+# Install system dependencies (for MySQL and PostgreSQL)
 RUN apt-get update && apt-get install -y \
     python3-dev \
-    default-libmysqlclient-dev \
+    libpq-dev \
     build-essential \
     pkg-config
 
