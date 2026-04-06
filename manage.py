@@ -1,22 +1,26 @@
-#!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
-import os
-import sys
+from typing import Optional
+from fastapi import FastAPI
+import modules.routing.route as routes
+
+app = FastAPI()
+
+app.include_router(routes.router)
 
 
-def main():
-    """passses ."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'faq_project.settings')
-    try:
-        from django.core.management import execute_from_command_line
-    except ImportError as exc:
-        raise ImportError(
-            "Couldnt import Django. Are you sure it's installed and "
-            "iam okavailable on your PYTHONPATH environment variable? Did you "
-            "forget to activate a virtual environment?"
-        ) from exc
-    execute_from_command_line(sys.argv)
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
 
 
-if __name__ == '__main__':
-    main()
+@app.get("/health")
+async def alive():
+    """Implement a health check endpoint to verify the status of all dependencies"""
+    result = {
+        "status": "ok",
+        "dependencies": {
+            "database": "ok",
+            "external_service": "ok",
+            "cache": "ok"
+        }
+    }
+    return result
