@@ -4,7 +4,7 @@
     {
       "name": "my-app",
       "image": "586794483352.dkr.ecr.us-west-1.amazonaws.com/my-ecr-repo:my-app-d0eb7d1f2267",
-      "memory": 512,
+      "memory": 51h2,
       "cpu": 256,
       "essential": true
     }
