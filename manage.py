@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    """Run all cases ."""
+    """Run all cases all test carses passses ."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'faq_project.settings')
     try:
         from django.core.management import execute_from_command_line
