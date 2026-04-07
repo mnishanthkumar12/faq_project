@@ -8,6 +8,7 @@
       "cpu": 256,
       "test":"success"
       "essential": true
+      "test1":"success"
     }
   ]
 }
