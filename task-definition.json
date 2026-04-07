@@ -6,7 +6,7 @@
       "image": "586794483352.dkr.ecr.us-west-1.amazonaws.com/my-ecr-repo:my-app-d0eb7d1f2267",
       "memory": 512,
       "cpu": 256,
-      "test":"FALSE"
+      "test":"yes"
       "essential": true
       "test1":"success0"
     }
