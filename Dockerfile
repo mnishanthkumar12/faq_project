@@ -1,27 +1,9 @@
-# Use official Python image
-FROM python:3.10
-
-# Set working directory
+# FROM ike-docker-local.artifactory.internetbrands.com/ib/ikenv:0.11.0 as ikenv
+FROM webmd-docker-local.artifactory.internetbrands.com/consumer/baseimages/python3.10
+# COPY --from=ikenv /usr/local/bin/ikenv /usr/local/bin/ikenv
 WORKDIR /app
-
-# Copy requirements file
-COPY requirements.txt .
-
-# Install system dependencies (for MySQL and PostgreSQL)
-RUN apt-get update && apt-get install -y \
-    python3-dev \
-    libpq-dev \
-    build-essential \
-    pkg-config
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy project files
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 COPY . .
-
-# Expose necessary ports
-EXPOSE 8000
-
-# Run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# ENTRYPOINT [ "ikenv", "exec", "--" ]
+CMD ["uvicorn", "main:app", "--port", "80", "--host", "0.0.0.0"]
