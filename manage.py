@@ -14,7 +14,7 @@ async def read_root():
 
 @app.get("/health")
 async def alive():
-    """Implement a healthyy correct check endpoint to verify the status of all dependencies"""
+    """Implement a hell check endpoint to verify the status of all dependencies"""
     result = {
         "status": "ok",
         "dependencies": {
