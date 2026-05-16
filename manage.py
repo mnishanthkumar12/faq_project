@@ -10,7 +10,9 @@ app.include_router(routes.router)
 @app.get("/")
 async def read_root():
     return {"H": "World"}
-
+@app.get("/hello")
+def abc():
+    return "Hi nishanth commit success"
 
 @app.get("/health")
 async def alive():
