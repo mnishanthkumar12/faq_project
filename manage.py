@@ -9,7 +9,7 @@ app.include_router(routes.router)
 
 @app.get("/")
 async def read_root():
-    return {"Hello": "World"}
+    return {"H": "World"}
 
 
 @app.get("/health")
