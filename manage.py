@@ -1,10 +1,4 @@
-from typing import required
-from fastapi import FastAPI
-import modules.routing.route as routes
-
-app = FastAPI()
-
-app.include_router(routes.router)
+ok
 
 
 @app.get("/")
