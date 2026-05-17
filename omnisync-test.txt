@@ -1,4 +1,3 @@
-OmniSync Test
-Line 1: bb
-Line 2: ORIGINAL
-Line 3: End
+CONFLICT_TEST
+VALUE_FROM_GITHUB
+END
