@@ -22,4 +22,4 @@ async def alive():
             "cache": "ok"
         }
     }
-    return result
+    return omnisync
